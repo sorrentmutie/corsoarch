@@ -1,5 +1,7 @@
 using DemoLibreria;
 using DemoLibreria.Interfaces;
+using DemoWeb.Data;
+using DemoWeb.Interfaces;
 using DemoWeb.Models;
 using Microsoft.EntityFrameworkCore;
 
@@ -13,7 +15,11 @@ builder.Services.AddDbContext<NorthwindContext>(options =>
 builder.Services.AddScoped<IA, A>();
 builder.Services.AddScoped<IB, B>();
 builder.Services.AddScoped<IMessageWriter, MessageWriter>();
+//builder.Services.AddScoped<ICategoriesData, NorthwindCategoriesData>();
 
+//builder.Services.AddScoped<IData<Category, CategoriaDTO, int>, GenericNorthwindData<Category, CategoriaDTO, int>>();
+//builder.Services.AddScoped<IData<Product, ProductDTO, int>, GenericNorthwindData<Product, ProductDTO, int>>();
+builder.Services.AddScoped<UnitOfWork>();
 
 var app = builder.Build();
 
