@@ -1,3 +1,5 @@
+using DemoLibreria;
+using DemoLibreria.Interfaces;
 using DemoWeb.Models;
 using Microsoft.EntityFrameworkCore;
 
@@ -7,6 +9,11 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllersWithViews();
 builder.Services.AddDbContext<NorthwindContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("Northwind")));
+
+builder.Services.AddScoped<IA, A>();
+builder.Services.AddScoped<IB, B>();
+builder.Services.AddScoped<IMessageWriter, MessageWriter>();
+
 
 var app = builder.Build();
 
