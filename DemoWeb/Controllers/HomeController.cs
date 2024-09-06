@@ -19,7 +19,7 @@ namespace DemoWeb.Controllers
             this.writer = writer;
             this.context = context;
             worker = new Worker(writer);
-            this.a = a;
+           // this.a = a;
         }
 
         public IActionResult Index()
